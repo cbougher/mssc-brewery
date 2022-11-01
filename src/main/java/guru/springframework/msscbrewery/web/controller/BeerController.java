@@ -3,6 +3,7 @@ package guru.springframework.msscbrewery.web.controller;
 import guru.springframework.msscbrewery.services.BeerService;
 import guru.springframework.msscbrewery.web.model.BeerDto;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.MediaType;
 
 import java.util.UUID;
 
@@ -19,7 +20,7 @@ public class BeerController {
         this.beerService = beerService;
     }
 
-    @GetMapping(value = {"/{beerId}"}, produces = "application/json")
+    @GetMapping(value = {"/{beerId}"}, produces = MediaType.APPLICATION_JSON_VALUE)
     public BeerDto getBeer(@PathVariable UUID beerId){
 
         return beerService.getBeerById(beerId);
